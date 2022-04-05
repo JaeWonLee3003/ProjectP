@@ -1,4 +1,3 @@
-from dataclasses import replace
 import discord, asyncio, random, os 
 from discord.ext.commands import Bot  
 from bs4 import BeautifulSoup
@@ -11,7 +10,7 @@ bot = Bot(command_prefix='!', intents=intents)
 async def on_ready():
     print('봇 이름 : ' + bot.user.name)
     print('성공적으로 봇이 시작되었습니다.')
-    game = discord.Game('?롤덤이 도움말')
+    game = discord.Game('봇이 공부를')
     await bot.change_presence(status=discord.Status.online, activity=game)
     
 raw_data = requests.get("https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=%EB%A1%A4%EB%A6%B0")
@@ -61,5 +60,14 @@ async def on_message(message):
         embed.add_field(name=":newspaper: 아트만파트너스", value=" ``https://drive.google.com/file/d/1xdo5uwFpZLHn2i46VHqu0xbgEoeyzV9T/view`` ", inline=False)
         embed.add_field(name=":newspaper: 가이아", value=" ``https://drive.google.com/file/d/1-1BFWe9mhXQYm9--RMMnh-3hJ_104yhA/view`` ", inline=False)
         await message.channel.send(embed=embed)
+        
+    if message.content == "?시간표":
+        embed = discord.Embed(title="2-4 시간표", description="변경 필요할 시 문의 부탁드립니다..", color=0xfd5252)
+        embed.add_field(name=":red_circle: 월요일", value=str(" **```1교시 영어 2교시 영어 3교시 음악 4교시 직업 5교시 직업 6교시 직업 7교시 직업```** "), inline=False)
+        embed.add_field(name=":orange_circle: 화요일", value=" **```1교시 탐색 2교시 국어 3교시 수학 4교시 체육 5교시 체육 6교시 음악 7교시 음악```** ", inline=False)
+        embed.add_field(name=":yellow_circle: 수요일", value=" **```1교시 국어 2교시 탐색 3교시 탐색 4교시 창체 5교시 창체 6교시 창체 ```** ", inline=False)
+        embed.add_field(name=":green_circle: 목요일", value=" **```1교시 언어 2교시 언어 3교시 체육 4교시 논술 5교시 국어 6교시 수학 7교시 수학```** ", inline=False)
+        embed.add_field(name=":blue_circle: 금요일", value=" **```1교시 화면 2교시 화면 3교시 화면 4교시 탐색 5교시 논술 6교시 체육 7교시 영어```** ", inline=False)
+        await message.channel.send(embed=embed)
 
-bot.run('ODg3MjgyNzI1OTUyODE5MjIw.YUB4bg.vOqwrJEFqVRKptZpo4yiLTB4g6Y')
+bot.run('ODg3MjgyNzI1OTUyODE5MjIw.YUB4bg.WUg39lpQAl4rOOA5Bo8Ny1swFgw')
