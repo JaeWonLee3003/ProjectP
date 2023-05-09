@@ -15,7 +15,7 @@ def main():
             print(product.select_one(".total").text)
             print("--------")
 
-        # saleNum = soup.find_all("span", 'Pnum')
+        # saleNum = soup.find_all("span", 'PNum')
         # print(str(saleNum).replace("<sapn class=\"Pnum\">","").replace("</span>","\n"))
         # soup 라는 이름에 변수에 Bs4 함수를 사용하여 raw_data.text 화 하여 html.parser 라는 변환기를 사용한다.
         # saleItem = soup.find_all("span", 'prod-name double-line')
