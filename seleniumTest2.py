@@ -17,7 +17,7 @@ def main():
     driver.get("https://www.danawa.com/")
     driver.find_element(By.ID,"AKCSearch").send_keys("바밀로"+Keys.ENTER)
 
-    # 05/09 다나와에 들어가서 바밀로를 검색 후 크롤링 할 것이다
+
 
 
 
