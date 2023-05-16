@@ -24,7 +24,7 @@ def main():
     driver.get("https://www.danawa.com/")
     driver.find_element(By.ID,"AKCSearch").send_keys("노트북"+Keys.ENTER)
     time.sleep(2)
-    ########
+
     for pageNo in range(3):
         driver.execute_script("getPage("+str(pageNo+1)+")")
         time.sleep(2)
