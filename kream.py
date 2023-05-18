@@ -10,7 +10,9 @@ import pymysql
 
 db = pymysql.connect(host='localhost', port=3306,
                      user='root', password='manager')
+
 cursor = db.cursor()
+
 insertSQL = "INSERT INTO pypj.kream_url (URL, product_id) VALUES(%s, %s);"
 
 option = options.Options()
