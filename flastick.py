@@ -2,7 +2,9 @@ import json
 
 from flask import Flask,json
 from flask import request
+from flask_cors import CORS
 app = Flask(__name__)
+CORS(app)
 import pymysql
 
 db = pymysql.connect(host='localhost', port=3306,
