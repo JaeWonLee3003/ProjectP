@@ -1,11 +1,11 @@
-import json
-
 from flask import Flask,json
 from flask import request
+import pymysql
 from flask_cors import CORS
+
 app = Flask(__name__)
 CORS(app)
-import pymysql
+
 
 db = pymysql.connect(host='localhost', port=3306,
                      user='root', password='manager')
@@ -30,6 +30,13 @@ def getData():
     cursor.execute(selectSQL,(typeData))
     rows = cursor.fetchall()
     result =  json.dumps(rows,ensure_ascii=False)
+    return result
+@app.route("/getDataAll")
+def getDataAll():
+    selectSQL = "select * from pypj.musinsa_rank"
+    cursor.execute(selectSQL)
+    rows = cursor.fetchall()
+    result = json.dumps(rows,ensure_ascii=False)
     return result
 
 if __name__ == '__main__':
