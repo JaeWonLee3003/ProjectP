@@ -4,6 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 import datetime
 
+
 app = Flask(__name__)
 CORS(app)
 app.config['JSON_AS_ASCII'] = False
@@ -26,9 +27,10 @@ def home():
         dateList[1].replace("0", "")
         dateList[2] = dateList[2].replace("일", "")
         dateList.pop()
-        dateResult = datetime.date(int(dateList[0]), int(dateList[1]), int(dateList[2]))
-        dateObject = datetime.date(2023, 5, 23)
-
+    dateResult = datetime.date(int(dateList[0]), int(dateList[1]), int(dateList[2]))
+    dateObject = datetime.date(2023, 5, 23)
+    print(dateResult)
+    print(dateObject)
     if dateResult == dateObject:
         food = soup.select(".ta_l")[3].text.strip()
         result = {"food": food}
